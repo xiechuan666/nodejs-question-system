@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const User = require('../../models/user');
+
 
 /* register page. */
 exports.showRegister = (req, res) => {
