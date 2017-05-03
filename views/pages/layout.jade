@@ -5,28 +5,32 @@ append css
 
 block main
   block header
-    header.header
-      div.header-content
+    header
+      div.header-content.flex-row
         div.header-left
           a(href="/")
             |ZY1390 Question System
           input(type="text", placeholder="请输入标题关键字")
           button 搜索
         div.header-right
-          ul
+          ul.flex-row
+            //- li
+            //-   a(href="/creat") 发布新问题
+            //- li
+            //-   a(href="/list") 问题列表
+            //- li
+            //-   a(href="/") 员工列表
             li
-              a(href="/creat") 发布新问题
-              a(href="/list") 问题列表
-              a(href="/") 员工列表
               a(href="/login") 登录
+            li
               a(href="/register") 注册
         
 
   block content
 
   block footer
-    footer
-      p NodeBlog by WUSO01 
-      p
-        a(href="#") Back to top
+    //- footer
+    //-   p NodeBlog by WUSO01 
+    //-   p
+    //-     a(href="#") Back to top
 

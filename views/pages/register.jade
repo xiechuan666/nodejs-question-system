@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div
+    form(action="/register" method="post")
+      label(for="") 用户名
+      input(type="text")
+      label(for="") 邮件地址
+      input(type="email")
+      label(for="") 密码
+      input(type="password")
+      label(for="") 密码
+      input(type="password")
+      button(type="submit") 注册
