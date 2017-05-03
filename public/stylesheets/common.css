@@ -10,7 +10,9 @@ a {
   color: #00B7FF;
   text-decoration: none
 }
-
+li{
+  list-style: none;
+}
 
 /*
  *头部搜索框

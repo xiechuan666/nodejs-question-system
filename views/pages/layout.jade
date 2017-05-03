@@ -7,8 +7,20 @@ block main
   block header
     header.header
       div.header-content
-        a(href="/")
-          |ZY1390 Question System
+        div.header-left
+          a(href="/")
+            |ZY1390 Question System
+          input(type="text", placeholder="请输入标题关键字")
+          button 搜索
+        div.header-right
+          ul
+            li
+              a(href="/creat") 发布新问题
+              a(href="/list") 问题列表
+              a(href="/") 员工列表
+              a(href="/login") 登录
+              a(href="/register") 注册
+        
 
   block content
 
