@@ -3,22 +3,23 @@ append css
   link(rel="stylesheet", href="/stylesheets/trumbowyg.css")
 block content
   .create-topic
-    .top-head
-      p 发布新问题
-    .top-title
-      .top-title-left
-        p 层级
-        select
-          option(value="0") 普通
-          option(value="1") 重要
-          option(value="2") 紧急
-      input(type="text" placeholder="输入标题" name="question_title")
-    .top-content#top-content
-      form(action="/create" method="post")
+    form(action="/create" method="post")
+      .top-head
+        p 发布新问题
+      .top-title
+        .top-title-left
+          p 层级
+          select
+            option(value="0") 普通
+            option(value="1") 重要
+            option(value="2") 紧急
+        input(type="text" placeholder="输入标题" name="question_title")
+      .top-content#top-content
         #textEdit
 
 append js
-  script(src="/javascripts/trumbowyg.min.js")
-  script(src="/javascripts/trumbowyg.upload.min.js")
-  script(src="/javascripts/trumbowyg.base64.min.js")
+  script(src="/javascripts/trumbowyg.js")
+  script(src="/javascripts/fr.js")
+  script(src="/javascripts/trumbowyg.upload.js")
+  script(src="/javascripts/trumbowyg.base64.js")
   script(src="/javascripts/config.js")
