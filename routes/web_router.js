@@ -13,4 +13,7 @@ router
   .get('/register', user.showRegister)
   .post('/register', user.register)
 
+router
+  .get('/login', user.showLogin)
+
 module.exports = router;
