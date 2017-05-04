@@ -4,8 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-const webRouter = require('./routes/web_router');
+var webRouter = require('./routes/web_router');
+var flash = require('connect-flash');
+// var expressMessage = require('express-messages');
 
 var app = express();
 
@@ -20,6 +21,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(flash());
+// app.use(function(req, res, next) {
+//   res.locals.messages = expressMessage;
+//   next();
+// });
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 
 app.use('/', webRouter);
 

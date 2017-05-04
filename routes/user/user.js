@@ -8,9 +8,15 @@ exports.showRegister = (req, res) => {
 
 exports.register = (req, res) => {
   let _req = req.body;
-  // 获取用户名 密码 邮箱
+  /* 获取用户名 密码 邮箱 * */
   let [name, password, re_password, email] = [_req.name, _req.password, _req.re_password, _req.email];
-  
+
+  /* 判断两次输入的密码是否一致 */
+  if (password !== re_password) {
+    res.render('pages/register');
+    return;
+  }
+
   /* 创建一个md5的hash实例 */
   let md5 = crypto.createHash('md5');
   md5.update(password);
@@ -22,9 +28,8 @@ exports.register = (req, res) => {
     password: password,
     email: email
   }, err => {
-    if (err) next (err);
+    if (err) next(err);
     res.redirect('/');
   })
 
 }
-
