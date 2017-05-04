@@ -5,7 +5,7 @@ const user = require('./user/user')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'ZY1390 Question System' });
+  res.render('pages/index');
 });
 
 /* register page. */
@@ -15,5 +15,6 @@ router
 
 router
   .get('/login', user.showLogin)
+  .post('/login', user.login)
 
 module.exports = router;

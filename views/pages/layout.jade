@@ -14,16 +14,20 @@ block main
           button 搜索
         div.header-right
           ul.flex-row
-            //- li
-            //-   a(href="/creat") 发布新问题
-            //- li
-            //-   a(href="/list") 问题列表
-            //- li
-            //-   a(href="/") 员工列表
-            li
-              a(href="/login") 登录
-            li
-              a(href="/register") 注册
+            if current_user
+              li
+                a(href="/creat") 发布新问题
+              li
+                a(href="/list") 问题列表
+              li
+                a(href="/") 员工列表
+              li
+                a(href="/") #{current_user}
+            else
+              li
+                a(href="/login") 登录
+              li
+                a(href="/register") 注册
         
 
   block content

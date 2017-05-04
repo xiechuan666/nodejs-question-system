@@ -4,9 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var webRouter = require('./routes/web_router');
-var flash = require('connect-flash');
-var expressMessage = require('express-messages');
+const webRouter = require('./routes/web_router');
+const flash = require('connect-flash');
+const expressMessage = require('express-messages');
+const session = require('express-session'); // 添加session
+const MongoStore = require('connect-mongo')(session);
+
+const User = require('./models/user')
 
 var app = express();
 
@@ -19,12 +23,23 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('sessiontest'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'sessiontest',
+  store: new MongoStore({
+    url: 'mongodb://localhost/zy1390',
+    ttl: 14 * 24 * 60 * 60 // = 14 days. Default
+  }),
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use(flash());
 app.use(function(req, res, next) {
-  res.locals.messages = expressMessage(req, res);
+  // res.locals.messages = expressMessage(req, res);
+  app.locals.current_user = req.session.email;
   next();
 });
 

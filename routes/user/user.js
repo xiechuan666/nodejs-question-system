@@ -19,7 +19,7 @@ exports.register = (req, res) => {
   }
 
   // 检查用户输入的账号和邮箱是否已经存在
-  User.find({name, email}, (err, result) => {
+  User.findOne({name}, (err, result) => {
     if (err) {
       console.log('the err is:', err)
     } else {
@@ -38,7 +38,17 @@ exports.register = (req, res) => {
     md5.update(password);
     password = md5.digest('hex')  // 把密码转换成16进制的字符串
 
-    /* 存入数据库 */
+    /*let users = new User({
+      name: name,
+      password: password,
+      email: email
+    });
+    
+    users.save(err => {
+      if (err) next(err);
+      res.redirect('/login');
+    });*/
+
     User.create({
       name: name,
       password: password,
@@ -48,11 +58,48 @@ exports.register = (req, res) => {
       res.redirect('/login');
     })
   }
-  
 
 }
 
 /* login page */
 exports.showLogin = (req, res) => {
   res.render('pages/login');
+}
+
+exports.login = (req, res) => {
+  /* 获取用户名 密码 邮箱 * */
+  let _req = req.body;
+  let [password, email] = [_req.password, _req.email];
+
+  User.findOne({email}, (err, result) => {
+    if (err) {
+      console.log('err is:', err)
+    } else {
+      if (!result) {
+        console.log('账户不存在');
+        res.redirect('/login');
+      } else {
+        // 用户已经注册的情况下查询此账号的密码
+
+        /* 创建一个md5的hash实例 */
+        let md5 = crypto.createHash('md5');
+        md5.update(password);
+        password = md5.digest('hex');  // 把密码转换成16进制的字符串
+
+        User.findOne({email: email, password: password}, (err, result) => {
+          if (err) {
+            console.log('err:', err);
+          } else {
+            if (result !== null) {
+              req.session.email = email;
+              console.log('登录成功')
+              res.redirect('/')
+            } else {
+              console.log('密码不正确')
+            }
+          }
+        })
+      }
+    }
+  })
 }
