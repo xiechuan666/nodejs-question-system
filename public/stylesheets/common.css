@@ -12,6 +12,9 @@ a {
 li{
   list-style: none;
 }
+input{
+  outline: none;
+}
 /*common*/
 .flex-row{
   display: flex;

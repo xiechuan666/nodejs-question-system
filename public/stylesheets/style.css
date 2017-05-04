@@ -1,7 +1,7 @@
 /*
  *注册页面
  */
-.sign-register {
+.sign-register, .create-topic {
   width: 600px;
   margin: 0 auto;
   margin-top: 80px;
@@ -34,4 +34,39 @@
   color: white;
   font-size: 18px;
   cursor: pointer
+}
+/*
+ * 添加新问题页面
+ */
+.create-topic{
+  padding: 0;
+  width: 690px;
+}
+.top-head{
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e6e8;
+}
+.top-title{
+  padding: 20px 10px;
+}
+.top-title p{
+  font-size: 17px;
+  display: inline-block;
+  margin-right: 10px;
+}
+.top-title input, .top-title select{
+  border-radius: 5px;
+  border: 1px solid #ccd0d2;
+  padding: 5px;
+  height: 20px;
+  width: 80%;
+}
+.top-title select{
+  width: 130px;
+  height: 26px;
+  padding: 0;
+  margin-bottom: 10px; 
 }
