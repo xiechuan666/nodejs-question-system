@@ -13,7 +13,8 @@ exports.register = (req, res) => {
 
   /* 判断两次输入的密码是否一致 */
   if (password !== re_password) {
-    res.render('pages/register');
+    req.flash('error', "密码不一致");
+    res.render('pages/register', {messages: req.flash('error')});
     return;
   }
 

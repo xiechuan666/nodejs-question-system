@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  -if(messages)
+    p !{messages}
   div
     form(action="/register" method="post")
       label(for="") 用户名
