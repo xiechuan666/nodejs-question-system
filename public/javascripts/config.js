@@ -1,11 +1,3 @@
-// $('#textEdit').trumbowyg({
-//   btnsDef: {  
-//     image: {  
-//       dropdown: [ 'insertImage', 'base64','upload' ],  // 'upload' 还有上传图片  
-//       ico: 'insertImage'  
-//     }  
-//   },  
-// });
 $.trumbowyg.btnsGrps.test = ['bold', 'link'];
 $('#textEdit').trumbowyg({
   lang: 'zh_cn',
@@ -18,7 +10,7 @@ $('#textEdit').trumbowyg({
       ico: 'justifyLeft'
     },
     image: {
-      dropdown: ['insertImage', 'upload', 'base64'],
+      dropdown: ['upload', 'base64'],
       ico: 'insertImage'
     }
   },

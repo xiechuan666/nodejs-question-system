@@ -70,3 +70,48 @@
   padding: 0;
   margin-bottom: 10px; 
 }
+
+/*
+ *首页问题展示页面
+ */
+.wrapper{
+  width: 1190px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border: 1px solid #ccd0d2;
+}
+.wrapper-head{
+  height: 50px;
+  border-bottom: 1px solid #ccd0d2;
+  line-height: 50px;
+}
+
+.wrapper-head > span {
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.wrapper-head > span:hover {
+  color: #00B7FF;
+}
+.wrapper-head > span.active{
+  color: #00B7FF;
+}
+.question-info{
+  padding: 0 10px;
+  height: 50px;
+  line-height: 50px;
+}
+.question-info li{
+  float: left;
+  margin-right: 50px;
+  font-weight: 700;
+  color: #333;
+  font-size: 14px;
+}
+.question-info li:nth-child(2){
+  width: 762px;
+}
+.question-info li:last-child{
+  margin: 0;
+}

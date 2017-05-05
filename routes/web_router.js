@@ -6,7 +6,11 @@ const op = require('./op/op')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index');
+  if(req.session.email) {
+    res.render('pages/index');
+  } else {
+    res.redirect('/login');
+  }
 });
 
 /* register page. */
