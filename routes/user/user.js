@@ -45,7 +45,7 @@ exports.register = (req, res) => {
     });
 
     users.save(err => {
-      if (err) next(err);
+      if (err) next (err);
       res.redirect('/login');
     });
 

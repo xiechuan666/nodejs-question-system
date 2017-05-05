@@ -1,9 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('../config/mongoose').mongoose;
 
-// 创建数据库
-mongoose.connect('mongodb://localhost/zy1390');
-
-// 注册schema
 var schema = new mongoose.Schema({
   name: String,
   email: String,

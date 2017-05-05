@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const expressMessage = require('express-messages');
 const session = require('express-session'); // 添加session
 const MongoStore = require('connect-mongo')(session);
+const moment = require('moment');
 
 const User = require('./models/user')
 
@@ -40,6 +41,7 @@ app.use(flash());
 app.use(function(req, res, next) {
   // res.locals.messages = expressMessage(req, res);
   app.locals.current_user = req.session.email;
+  app.locals.moment = moment;
   next();
 });
 

@@ -12,7 +12,11 @@ block content
          li 发表时间
          li 标题
          li 发起人
-         li 最后回复
-         li 层级
-
-      
+      each question in questions
+        p
+          = question.author
+        p
+          =moment(question.created).format('YYYY-MM-DD')
+        p
+          = question.title
+         

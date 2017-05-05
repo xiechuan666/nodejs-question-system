@@ -1,27 +1,25 @@
 var express = require('express');
 var router = express.Router();
 
+const index = require('./index')
 const user = require('./user/user')
 const op = require('./op/op')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  if(req.session.email) {
-    res.render('pages/index');
-  } else {
-    res.redirect('/login');
-  }
-});
+router
+  .get('/', index.Index)
 
-/* register page. */
+// 注册
 router
   .get('/register', user.showRegister)
   .post('/register', user.register)
 
+// 登录
 router
   .get('/login', user.showLogin)
   .post('/login', user.login)
 
+// 登出
 router
   .get('/logout', user.logout)
 
