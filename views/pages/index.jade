@@ -14,9 +14,9 @@ block content
          li 发起人
       each question in questions
         p
-          = question.author
-        p
-          =moment(question.created).format('YYYY-MM-DD')
+          = moment(question.created).format('YYYY-MM-DD')
         p
           = question.title
+        p
+          = question.author
          

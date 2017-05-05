@@ -39,7 +39,6 @@ app.use(session({
 
 app.use(flash());
 app.use(function(req, res, next) {
-  // res.locals.messages = expressMessage(req, res);
   app.locals.current_user = req.session.email;
   app.locals.moment = moment;
   next();
