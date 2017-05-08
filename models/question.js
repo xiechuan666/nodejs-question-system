@@ -4,6 +4,7 @@ var schema = new mongoose.Schema({
   title: {type: String, required: true},
   article: {type: String, required: true},
   author: String,
+  tab: String,
   // author: {type: Schema.Types.ObjectId, ref: 'User'},
   created: {type: Date}
 });

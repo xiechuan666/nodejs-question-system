@@ -23,7 +23,9 @@ router
 router
   .get('/logout', user.logout)
 
+// 发布新问题
 router
   .get('/create', op.showCreate)
+  .post('/create', op.create)
   
 module.exports = router;

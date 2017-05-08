@@ -9,14 +9,14 @@ block content
       .top-title
         .top-title-left
           p 层级
-          select
+          select( name="tab")
             option(value="0") 普通
             option(value="1") 重要
             option(value="2") 紧急
-        input(type="text" placeholder="输入标题" name="question_title")
+        input(type="text" placeholder="输入标题" name="title")
       .top-content#top-content
         #textEdit
-        //- input(type="text" id="#textEdit")
+      button(type="submit") 提交
 
 append js
   script(src="/javascripts/trumbowyg.js")
