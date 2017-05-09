@@ -10,9 +10,9 @@ const expressMessage = require('express-messages');
 const session = require('express-session'); // 添加session
 const MongoStore = require('connect-mongo')(session);
 const moment = require('moment');
+moment.lang('zh-cn');
 
 const User = require('./models/user')
-
 var app = express();
 
 // view engine setup
@@ -42,6 +42,7 @@ app.use(function(req, res, next) {
   // app.locals.current_user = req.session.email;
   app.locals.current_user = req.session.user;
   app.locals.moment = moment;
+  // app.locals.moment = moment.lang('zh-cn');
   next();
 });
 

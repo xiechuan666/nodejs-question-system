@@ -14,13 +14,11 @@ block content
          li 发起人
       each question in questions
         div.question-content
-          p
-            = moment(question.created).format('llll')
-          p
+          li
+            = moment(question.created).fromNow()
+          li
             a(href="/question/details/" + question._id)
               = question.title
-          p
-            = question.article
-          p
+          li
             = question.author
          

@@ -13,7 +13,7 @@ exports.create = (req, res) => {
     title: title,
     article: article,
     tab: tab,
-    create: new Data(),
+    created: Date.now(),
     author: author
   }, err => {
     if (err) next (err);
