@@ -1,0 +1,70 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none
+}
+li{
+  list-style: none;
+}
+input{
+  outline: none;
+}
+/*common*/
+.flex-row{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+}
+/*
+ *头部搜索框
+ */
+header {
+  width: 100%;
+  border-bottom: 1px solid #00B7FF;
+}
+.header-content {
+  justify-content: space-between;
+  align-items: center;
+  width: 1190px;
+  height: 50px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+.header-content a{
+  color: #777;
+}
+.header-left a {
+  font-size: 20px;
+  margin-right: 15px;
+  height: 50px;
+  line-height: 1;
+}
+.header-left input, .header-left button{
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #e5e6e8;
+  padding: 0 5px;
+  margin-right: 5px;
+}
+.header-left button{
+  width: 50px;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+  color: #777;
+}
+.header-right ul{
+  justify-content: space-between;
+}
+.header-right li{
+  margin: 0 8px;
+}
+.header-right li:nth-last-child(1){
+  margin-right: 0;
+}

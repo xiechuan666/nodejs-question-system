@@ -1,0 +1,14 @@
+extends ../layout
+append css
+  link(rel="stylesheet", href="/stylesheets/trumbowyg.css")
+block content
+  each question in questions
+    div.question-content
+      p
+        = moment(question.created).format('llll')
+      p
+        = question.title
+      p
+        = question.article
+      p
+        = question.author
