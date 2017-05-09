@@ -3,7 +3,7 @@ const Ques = require('../models/question');
 exports.Index = (req, res) => {
   if(req.session.user) {
      Ques.find({})
-      .sort('created')
+      .sort({created: -1})
       .select('title author created')
       .exec((err, questions) => {
         // return res.jsonp(questions);
